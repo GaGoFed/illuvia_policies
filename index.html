@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Illuvia — Policies</title>
+<meta name="description" content="Privacy policy and terms of use for Illuvia, a personal life-management app for Windows.">
+<style>
+:root {
+  --bg: #ffffff; --fg: #1c1c22; --muted: #5f5f6b; --line: #e2e2ea;
+  --accent: #6C5CE7; --accent-soft: #f1eefe; --code-bg: #f5f5f9;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16161c; --fg: #e8e8ee; --muted: #9b9baa; --line: #2c2c36;
+    --accent: #8b7cf0; --accent-soft: #23213a; --code-bg: #1f1f28;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.65 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+.wrap { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+header { border-bottom: 1px solid var(--line); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+.brand { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
+.brand span { color: var(--accent); }
+.tagline { color: var(--muted); margin: 0.35rem 0 0; font-size: 0.95rem; }
+nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+nav.docs { margin-bottom: 2rem; }
+button {
+  font: inherit; font-size: 0.9rem; cursor: pointer; padding: 0.4rem 0.85rem;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: transparent; color: var(--muted); transition: all .15s;
+}
+button:hover { border-color: var(--accent); color: var(--accent); }
+button[aria-current="true"] {
+  background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 600;
+}
+article { display: none; }
+article.active { display: block; }
+h1 { font-size: 1.5rem; margin: 0 0 0.25rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.15rem; margin: 2.25rem 0 0.5rem; letter-spacing: -0.005em; }
+h3 { font-size: 1rem; margin: 1.5rem 0 0.4rem; }
+p, li { color: var(--fg); }
+ul { padding-left: 1.25rem; }
+li { margin-bottom: 0.5rem; }
+code {
+  background: var(--code-bg); padding: 0.12em 0.4em; border-radius: 4px;
+  font-family: "Cascadia Code", Consolas, monospace; font-size: 0.88em; word-break: break-all;
+}
+pre { background: var(--code-bg); padding: 0.9rem 1rem; border-radius: 8px; overflow-x: auto; }
+pre code { background: none; padding: 0; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+a { color: var(--accent); }
+footer {
+  margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+  color: var(--muted); font-size: 0.875rem;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="brand">Illu<span>via</span></p>
+    <p class="tagline">Personal life management for Windows — offline by design.</p>
+  </header>
+
+  <nav class="langs" aria-label="Language"><button type="button" data-lang="en">English</button><button type="button" data-lang="it">Italiano</button><button type="button" data-lang="es">Español</button><button type="button" data-lang="fr">Français</button><button type="button" data-lang="pt">Português</button></nav>
+  <nav class="docs" aria-label="Document"><button type="button" data-doc="privacy">Privacy policy</button><button type="button" data-doc="terms">Terms of use</button></nav>
+
+  <article data-lang="en" data-doc="privacy"><h1>Illuvia — Privacy policy</h1>
+<p><strong>Last updated: 6 August 2026 · Applies to Illuvia 1.0.0 for Windows</strong></p>
+<h2>The short version</h2>
+<p>Illuvia does not collect anything. It has no servers, no accounts and no analytics, and it makes no network connections of its own. Everything you type stays in files on your PC, under your Windows account.</p>
+<h2>What Illuvia stores, and where</h2>
+<p>Everything you enter — tasks, checklists, transactions, accounts, payment plans, wishlist items, vehicles, settings — is written to files in your own user folder:</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\database\</code></pre>
+<p>That is the folder whether Illuvia was installed from the Microsoft Store or run from a plain build: the data does not live inside the installed package.</p>
+<p>Those files are <strong>encrypted at rest</strong> with AES-256. The key is generated on your PC the first time Illuvia runs and is kept in the Windows Credential Manager, protected for your Windows account (DPAPI). It is never derived from your PIN or password, and it never leaves the machine. Someone copying the files to another PC, or reading them from another Windows account, cannot decrypt them.</p>
+<p>Illuvia also writes a plain-text diagnostic log:</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\logs\illuvia.log</code></pre>
+<p>It records what the app did — which module loaded, how many records were read, what an error said — so a problem can be understood after the fact. It is capped at 5 MB with up to three rotated files, it is never sent anywhere, and you can delete it at any time. It is not encrypted, so if you send it to us for support, read it first.</p>
+<h2>What Illuvia does not do</h2>
+<ul><li><strong>No data collection.</strong> No usage statistics, no crash reporting, no analytics, no advertising, no profiling, no identifiers of any kind.</li><li><strong>No accounts.</strong> There is nothing to register, and no e-mail address is required to use the app.</li><li><strong>No network.</strong> The app package declares no internet capability, and the application makes no requests. It works with the network cable unplugged.</li><li><strong>No third parties.</strong> Nothing you enter is shared with anyone, because there is no one to share it with.</li></ul>
+<h2>The two times something leaves the app</h2>
+<p><strong>Opening a link.</strong> If you save a shop link with a wishlist item, or use the donation link, tapping it hands the address to your default browser. From that point on you are on that website, under its privacy policy, not ours. Illuvia itself does not fetch the page.</p>
+<p><strong>Making a backup.</strong> A backup is one file holding everything, saved where you choose. You decide how it leaves the machine:</p>
+<ul><li><strong>Export without a password</strong> (the default). The file is written as readable JSON. This is the one way to inspect a backup or to open it with anything other than Illuvia, and it is exactly as private as the place you put it. If you have saved service credentials on a payment plan (see below), Illuvia warns you before writing: they are in that file in plain text.</li><li><strong>Export with a password.</strong> The file is sealed with AES-256, using a key derived from your password (Argon2id). It can be restored on any machine, and it cannot be opened without that password — nobody can recover it for you.</li></ul>
+<p>The copies Illuvia writes for itself — the automatic ones, and the safety copy taken before a restore or an import — are always sealed with this PC&#x27;s key. They stay in Illuvia&#x27;s own folder, and uninstalling the app leaves them there along with everything else.</p>
+<h2>Passwords you save for other services</h2>
+<p>A payment plan can hold the username and password of the service it pays for — your electricity account, a subscription — because that is where you look for them. They are stored like every other field: in the database, encrypted at rest, on this PC only. They are never sent anywhere, and Illuvia has no way to use them for anything.</p>
+<p>Two things follow. They travel inside a backup, which is what makes a restore put your data back as it was; and an <strong>unprotected export</strong> therefore contains them in plain text, which is why Illuvia warns you before writing one.</p>
+<h2>The app lock</h2>
+<p>The PIN or password that opens Illuvia is a different thing, and it is never stored. What is stored is an Argon2id hash of it, with a random salt, in the Windows Credential Manager alongside the encryption key. Windows Hello, if you enable it, is handled entirely by Windows; Illuvia receives only a yes or no and never sees biometric data.</p>
+<h2>Deleting your data</h2>
+<p>Settings → Security → <em>Empty every module</em> erases everything you have entered. Next to it, <em>Erase all data</em> also removes the encryption key and the credential, which is what the &quot;I forgot my PIN&quot; flow does.</p>
+<p><strong>Uninstalling Illuvia does not delete your data.</strong> Windows removes the application and leaves the folders above where they are, so that reinstalling finds everything as you left it. If you want the data gone as well, use one of the two commands first, or delete <code>%APPDATA%\Gagofed\Illuvia\</code> yourself — that folder holds the database, the log and the automatic copies.</p>
+<p>Backups you exported yourself are never touched by any of these — only you know where they are.</p>
+<h2>Children</h2>
+<p>Illuvia is a general-purpose personal organiser. It is not directed at children and collects no information from anyone, of any age.</p>
+<h2>Changes to this policy</h2>
+<p>If a future version of Illuvia ever changes what it does with your data, this page will be updated before that version is published, and the change will be described in the release notes.</p>
+<h2>Contact</h2>
+<p>Questions about this policy: <strong>illuvia.dev@gmail.com</strong></p></article>
+  <article data-lang="it" data-doc="privacy"><h1>Illuvia — Informativa sulla privacy</h1>
+<p><strong>Ultimo aggiornamento: 6 agosto 2026 · Vale per Illuvia 1.0.0 per Windows</strong></p>
+<h2>In breve</h2>
+<p>Illuvia non raccoglie nulla. Non ha server, non ha account, non ha strumenti di analisi e non apre alcuna connessione di rete per conto proprio. Tutto quello che scrivi resta in file sul tuo PC, sotto il tuo account Windows.</p>
+<h2>Cosa salva Illuvia, e dove</h2>
+<p>Tutto quello che inserisci — attività, checklist, transazioni, conti, piani di pagamento, desideri, veicoli, impostazioni — finisce in file nella tua cartella utente:</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\database\</code></pre>
+<p>È quella cartella sia che Illuvia arrivi dal Microsoft Store sia che venga eseguita da una build normale: i dati non stanno dentro il pacchetto installato.</p>
+<p>Quei file sono <strong>cifrati su disco</strong> con AES-256. La chiave viene generata sul tuo PC al primo avvio e custodita nella Gestione credenziali di Windows, protetta per il tuo account Windows (DPAPI). Non deriva mai dal tuo PIN o dalla tua password, e non lascia mai la macchina. Chi copiasse i file su un altro PC, o provasse a leggerli da un altro account Windows, non riuscirebbe a decifrarli.</p>
+<p>Illuvia scrive anche un registro diagnostico in chiaro:</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\logs\illuvia.log</code></pre>
+<p>Annota cosa ha fatto l&#x27;app — quale modulo si è caricato, quanti record ha letto, cosa diceva un errore — così che un problema si possa capire a posteriori. È limitato a 5 MB con al massimo tre file di rotazione, non viene mandato da nessuna parte e puoi cancellarlo quando vuoi. Non è cifrato: se lo invii per avere assistenza, leggilo prima.</p>
+<h2>Cosa Illuvia non fa</h2>
+<ul><li><strong>Nessuna raccolta di dati.</strong> Nessuna statistica d&#x27;uso, nessuna segnalazione di crash, nessuna analisi, nessuna pubblicità, nessuna profilazione, nessun identificativo di alcun tipo.</li><li><strong>Nessun account.</strong> Non c&#x27;è niente da registrare e non serve un indirizzo e-mail per usare l&#x27;app.</li><li><strong>Nessuna rete.</strong> Il pacchetto dell&#x27;app non dichiara alcuna capability di connessione a Internet e l&#x27;applicazione non fa richieste. Funziona con il cavo di rete staccato.</li><li><strong>Nessun terzo.</strong> Niente di quello che inserisci viene condiviso con qualcuno, perché non c&#x27;è nessuno con cui condividerlo.</li></ul>
+<h2>Le due volte in cui qualcosa esce dall&#x27;app</h2>
+<p><strong>Aprire un link.</strong> Se salvi il link di un negozio su un desiderio, o usi il link per la donazione, toccandolo l&#x27;indirizzo viene passato al tuo browser predefinito. Da quel momento sei su quel sito, sotto la sua informativa, non sotto questa. Illuvia non scarica la pagina.</p>
+<p><strong>Fare un backup.</strong> Un backup è un unico file che contiene tutto, salvato dove scegli tu. Come esce dal computer lo decidi tu:</p>
+<ul><li><strong>Esporta senza password</strong> (predefinito). Il file viene scritto come JSON leggibile. È l&#x27;unico modo per ispezionare un backup o per aprirlo con qualcosa che non sia Illuvia, ed è privato esattamente quanto il posto in cui lo metti. Se hai salvato le credenziali di un servizio su un piano di pagamento (vedi sotto), Illuvia ti avvisa prima di scrivere: lì dentro sono in chiaro.</li><li><strong>Esporta con password.</strong> Il file viene sigillato con AES-256, con una chiave derivata dalla tua password (Argon2id). Può essere ripristinato su qualsiasi macchina, e senza quella password non si apre: nessuno può recuperarla per te.</li></ul>
+<p>Le copie che Illuvia scrive per sé — quelle automatiche, e la copia di sicurezza presa prima di un ripristino o di un import — sono sempre sigillate con la chiave di questo PC. Restano nella cartella di Illuvia, e disinstallare l&#x27;app le lascia lì insieme a tutto il resto.</p>
+<h2>Le password che salvi per altri servizi</h2>
+<p>Un piano di pagamento può contenere nome utente e password del servizio che paga — il tuo account della luce, un abbonamento — perché è lì che li cerchi. Sono salvati come ogni altro campo: nel database, cifrati a riposo, solo su questo PC. Non vengono mai inviati da nessuna parte, e Illuvia non ha modo di usarli.</p>
+<p>Ne seguono due cose. Viaggiano dentro un backup, ed è ciò che permette a un ripristino di rimettere i tuoi dati com&#x27;erano; e quindi un&#x27;<strong>esportazione non protetta</strong> li contiene in chiaro, ed è per questo che Illuvia avvisa prima di scriverla.</p>
+<h2>Il blocco dell&#x27;app</h2>
+<p>Il PIN o la password che aprono Illuvia sono un&#x27;altra cosa, e non vengono mai memorizzati. Viene memorizzato un hash Argon2id, con un salt casuale, nella Gestione credenziali di Windows accanto alla chiave di cifratura. Windows Hello, se lo attivi, è gestito interamente da Windows: Illuvia riceve solo un sì o un no e non vede mai dati biometrici.</p>
+<h2>Cancellare i tuoi dati</h2>
+<p>Impostazioni → Sicurezza → <em>Svuota tutti i moduli</em> elimina tutto quello che hai inserito. Accanto, <em>Cancella tutti i dati</em> rimuove anche la chiave di cifratura e la credenziale: è quello che fa il flusso &quot;ho dimenticato il PIN&quot;.</p>
+<p><strong>Disinstallare Illuvia non cancella i tuoi dati.</strong> Windows rimuove l&#x27;applicazione e lascia le cartelle indicate sopra dove sono, così reinstallando ritrovi tutto com&#x27;era. Se vuoi che spariscano anche i dati, usa prima uno dei due comandi, oppure cancella tu la cartella <code>%APPDATA%\Gagofed\Illuvia\</code>: lì dentro stanno il database, il log e le copie automatiche.</p>
+<p>I backup che hai esportato non vengono toccati da nessuna di queste operazioni: solo tu sai dove sono.</p>
+<h2>Minori</h2>
+<p>Illuvia è un organizzatore personale di uso generale. Non è rivolta ai minori e non raccoglie informazioni da nessuno, di nessuna età.</p>
+<h2>Modifiche a questa informativa</h2>
+<p>Se una versione futura di Illuvia dovesse cambiare quello che fa con i tuoi dati, questa pagina verrà aggiornata prima che quella versione venga pubblicata, e la modifica sarà descritta nelle note di rilascio.</p>
+<h2>Contatti</h2>
+<p>Domande su questa informativa: <strong>illuvia.dev@gmail.com</strong></p></article>
+  <article data-lang="es" data-doc="privacy"><h1>Illuvia — Política de privacidad</h1>
+<p><strong>Última actualización: 6 de agosto de 2026 · Aplica a Illuvia 1.0.0 para Windows</strong></p>
+<h2>En resumen</h2>
+<p>Illuvia no recoge nada. No tiene servidores, ni cuentas, ni herramientas de analítica, y no abre ninguna conexión de red por su cuenta. Todo lo que escribes permanece en archivos de tu PC, bajo tu cuenta de Windows.</p>
+<h2>Qué guarda Illuvia, y dónde</h2>
+<p>Todo lo que introduces — tareas, listas, transacciones, cuentas, planes de pago, deseos, vehículos, ajustes — se escribe en archivos dentro de tu propia carpeta de usuario:</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\database\</code></pre>
+<p>Esa es la carpeta tanto si Illuvia viene de la Microsoft Store como si se ejecuta desde una compilación normal: los datos no viven dentro del paquete instalado.</p>
+<p>Esos archivos están <strong>cifrados en disco</strong> con AES-256. La clave se genera en tu PC la primera vez que se ejecuta Illuvia y se guarda en el Administrador de credenciales de Windows, protegida para tu cuenta de Windows (DPAPI). Nunca deriva de tu PIN o contraseña, y nunca sale del equipo. Quien copiara los archivos a otro PC, o intentara leerlos desde otra cuenta de Windows, no podría descifrarlos.</p>
+<p>Illuvia también escribe un registro de diagnóstico en texto plano:</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\logs\illuvia.log</code></pre>
+<p>Anota lo que hizo la aplicación — qué módulo se cargó, cuántos registros leyó, qué decía un error — para poder entender un problema a posteriori. Está limitado a 5 MB con hasta tres archivos rotados, no se envía a ninguna parte y puedes borrarlo cuando quieras. No está cifrado: si lo envías para pedir ayuda, léelo antes.</p>
+<h2>Qué no hace Illuvia</h2>
+<ul><li><strong>Ninguna recogida de datos.</strong> Sin estadísticas de uso, sin informes de errores, sin analítica, sin publicidad, sin perfilado, sin identificadores de ningún tipo.</li><li><strong>Ninguna cuenta.</strong> No hay nada que registrar y no hace falta una dirección de correo para usar la aplicación.</li><li><strong>Ninguna red.</strong> El paquete de la aplicación no declara ninguna capacidad de conexión a Internet y la aplicación no realiza peticiones. Funciona con el cable de red desconectado.</li><li><strong>Ningún tercero.</strong> Nada de lo que introduces se comparte con nadie, porque no hay nadie con quien compartirlo.</li></ul>
+<h2>Las dos veces en que algo sale de la aplicación</h2>
+<p><strong>Abrir un enlace.</strong> Si guardas el enlace de una tienda en un deseo, o usas el enlace de donación, al tocarlo la dirección pasa a tu navegador predeterminado. A partir de ahí estás en ese sitio web, bajo su política de privacidad, no bajo esta. Illuvia no descarga la página.</p>
+<p><strong>Hacer una copia de seguridad.</strong> Una copia es un único archivo con todo dentro, guardado donde tú elijas. Cómo sale del ordenador lo decides tú:</p>
+<ul><li><strong>Exportar sin contraseña</strong> (opción predeterminada). El archivo se escribe como JSON legible. Es la única manera de inspeccionar una copia o de abrirla con algo que no sea Illuvia, y es tan privado como el sitio donde lo pongas. Si has guardado las credenciales de un servicio en un plan de pago (ver más abajo), Illuvia te avisa antes de escribirlo: ahí están en claro.</li><li><strong>Exportar con contraseña.</strong> El archivo se sella con AES-256, con una clave derivada de tu contraseña (Argon2id). Puede restaurarse en cualquier máquina, y sin esa contraseña no se abre: nadie puede recuperarla por ti.</li></ul>
+<p>Las copias que Illuvia escribe para sí misma — las automáticas, y la copia de seguridad tomada antes de una restauración o de una importación — están siempre selladas con la clave de este PC. Se quedan en la carpeta de Illuvia, y desinstalar la aplicación las deja ahí junto con todo lo demás.</p>
+<h2>Las contraseñas que guardas para otros servicios</h2>
+<p>Un plan de pago puede contener el usuario y la contraseña del servicio que paga — tu cuenta de la luz, una suscripción — porque es ahí donde los buscas. Se guardan como cualquier otro campo: en la base de datos, cifrados en reposo y solo en este PC. Nunca se envían a ninguna parte, e Illuvia no tiene forma de usarlos.</p>
+<p>De ahí se siguen dos cosas. Viajan dentro de una copia de seguridad, que es lo que permite que una restauración devuelva tus datos tal como estaban; y por eso una <strong>exportación sin contraseña</strong> los contiene en claro, que es la razón por la que Illuvia avisa antes de escribirla.</p>
+<h2>El bloqueo de la aplicación</h2>
+<p>El PIN o la contraseña que abren Illuvia son otra cosa, y nunca se almacenan. Lo que se almacena es un hash Argon2id con una sal aleatoria, en el Administrador de credenciales de Windows, junto a la clave de cifrado. Windows Hello, si lo activas, lo gestiona Windows por completo: Illuvia solo recibe un sí o un no y nunca ve datos biométricos.</p>
+<h2>Borrar tus datos</h2>
+<p>Ajustes → Seguridad → <em>Vaciar todos los módulos</em> elimina todo lo que has introducido. Al lado, <em>Borrar todos los datos</em> elimina además la clave de cifrado y la credencial: es lo que hace el flujo «he olvidado mi PIN».</p>
+<p><strong>Desinstalar Illuvia no borra tus datos.</strong> Windows elimina la aplicación y deja las carpetas indicadas arriba donde están, de modo que al reinstalar lo encuentras todo como lo dejaste. Si quieres que desaparezcan también los datos, usa antes uno de los dos comandos, o borra tú la carpeta <code>%APPDATA%\Gagofed\Illuvia\</code>: ahí están la base de datos, el registro y las copias automáticas.</p>
+<p>Las copias de seguridad que hayas exportado no se ven afectadas por ninguna de estas operaciones: solo tú sabes dónde están.</p>
+<h2>Menores</h2>
+<p>Illuvia es un organizador personal de uso general. No está dirigida a menores y no recoge información de nadie, de ninguna edad.</p>
+<h2>Cambios en esta política</h2>
+<p>Si una versión futura de Illuvia cambiara lo que hace con tus datos, esta página se actualizará antes de publicar esa versión, y el cambio se describirá en las notas de la versión.</p>
+<h2>Contacto</h2>
+<p>Preguntas sobre esta política: <strong>illuvia.dev@gmail.com</strong></p></article>
+  <article data-lang="fr" data-doc="privacy"><h1>Illuvia — Politique de confidentialité</h1>
+<p><strong>Dernière mise à jour : 6 août 2026 · S&#x27;applique à Illuvia 1.0.0 pour Windows</strong></p>
+<h2>En bref</h2>
+<p>Illuvia ne collecte rien. Elle n&#x27;a ni serveurs, ni comptes, ni outils d&#x27;analyse, et n&#x27;ouvre aucune connexion réseau de sa propre initiative. Tout ce que vous saisissez reste dans des fichiers sur votre PC, sous votre compte Windows.</p>
+<h2>Ce qu&#x27;Illuvia enregistre, et où</h2>
+<p>Tout ce que vous saisissez — tâches, listes, transactions, comptes, plans de paiement, envies, véhicules, réglages — est écrit dans des fichiers de votre propre dossier utilisateur :</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\database\</code></pre>
+<p>C&#x27;est ce dossier, qu&#x27;Illuvia vienne du Microsoft Store ou d&#x27;une compilation ordinaire : les données ne vivent pas à l&#x27;intérieur du paquet installé.</p>
+<p>Ces fichiers sont <strong>chiffrés sur le disque</strong> en AES-256. La clé est générée sur votre PC au premier lancement et conservée dans le Gestionnaire d&#x27;identification de Windows, protégée pour votre compte Windows (DPAPI). Elle ne dérive jamais de votre code PIN ou de votre mot de passe, et ne quitte jamais la machine. Copier les fichiers sur un autre PC, ou tenter de les lire depuis un autre compte Windows, ne permet pas de les déchiffrer.</p>
+<p>Illuvia écrit également un journal de diagnostic en clair :</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\logs\illuvia.log</code></pre>
+<p>Il note ce que l&#x27;application a fait — quel module s&#x27;est chargé, combien d&#x27;enregistrements ont été lus, ce que disait une erreur — afin qu&#x27;un problème puisse être compris après coup. Il est limité à 5 Mo avec au plus trois fichiers de rotation, il n&#x27;est envoyé nulle part et vous pouvez le supprimer à tout moment. Il n&#x27;est pas chiffré : si vous nous l&#x27;envoyez pour obtenir de l&#x27;aide, lisez-le d&#x27;abord.</p>
+<h2>Ce qu&#x27;Illuvia ne fait pas</h2>
+<ul><li><strong>Aucune collecte de données.</strong> Pas de statistiques d&#x27;usage, pas de rapports de plantage, pas d&#x27;analyse, pas de publicité, pas de profilage, aucun identifiant d&#x27;aucune sorte.</li><li><strong>Aucun compte.</strong> Il n&#x27;y a rien à créer, et aucune adresse e-mail n&#x27;est nécessaire pour utiliser l&#x27;application.</li><li><strong>Aucun réseau.</strong> Le paquet de l&#x27;application ne déclare aucune capacité de connexion à Internet et l&#x27;application n&#x27;effectue aucune requête. Elle fonctionne câble réseau débranché.</li><li><strong>Aucun tiers.</strong> Rien de ce que vous saisissez n&#x27;est partagé avec qui que ce soit, parce qu&#x27;il n&#x27;y a personne avec qui le partager.</li></ul>
+<h2>Les deux moments où quelque chose sort de l&#x27;application</h2>
+<p><strong>Ouvrir un lien.</strong> Si vous enregistrez le lien d&#x27;une boutique sur une envie, ou si vous utilisez le lien de don, un appui transmet l&#x27;adresse à votre navigateur par défaut. À partir de là vous êtes sur ce site, sous sa politique de confidentialité, pas sous celle-ci. Illuvia ne télécharge pas la page.</p>
+<p><strong>Faire une sauvegarde.</strong> Une sauvegarde est un seul fichier contenant tout, enregistré où vous voulez. La façon dont elle quitte la machine, c&#x27;est vous qui la choisissez :</p>
+<ul><li><strong>Exporter sans mot de passe</strong> (par défaut). Le fichier est écrit en JSON lisible. C&#x27;est le seul moyen d&#x27;inspecter une sauvegarde ou de l&#x27;ouvrir avec autre chose qu&#x27;Illuvia, et il est aussi privé que l&#x27;endroit où vous le mettez. Si vous avez enregistré les identifiants d&#x27;un service sur un plan de paiement (voir plus bas), Illuvia vous prévient avant de l&#x27;écrire : ils y sont en clair.</li><li><strong>Exporter avec un mot de passe.</strong> Le fichier est scellé en AES-256, avec une clé dérivée de votre mot de passe (Argon2id). Il peut être restauré sur n&#x27;importe quelle machine, et sans ce mot de passe il ne s&#x27;ouvre pas : personne ne peut le récupérer pour vous.</li></ul>
+<p>Les copies qu&#x27;Illuvia écrit pour elle-même — les automatiques, et la copie de sécurité prise avant une restauration ou un import — sont toujours scellées avec la clé de ce PC. Elles restent dans le dossier d&#x27;Illuvia, et désinstaller l&#x27;application les y laisse avec tout le reste.</p>
+<h2>Les mots de passe que vous enregistrez pour d&#x27;autres services</h2>
+<p>Un plan de paiement peut contenir l&#x27;identifiant et le mot de passe du service qu&#x27;il paie — votre compte d&#x27;électricité, un abonnement — parce que c&#x27;est là que vous les cherchez. Ils sont enregistrés comme n&#x27;importe quel autre champ : dans la base de données, chiffrés au repos, sur ce PC uniquement. Ils ne sont jamais envoyés nulle part, et Illuvia n&#x27;a aucun moyen de s&#x27;en servir.</p>
+<p>Deux conséquences. Ils voyagent dans une sauvegarde, et c&#x27;est ce qui permet à une restauration de remettre vos données telles qu&#x27;elles étaient ; une <strong>exportation sans mot de passe</strong> les contient donc en clair, et c&#x27;est pourquoi Illuvia prévient avant d&#x27;en écrire une.</p>
+<h2>Le verrouillage de l&#x27;application</h2>
+<p>Le code PIN ou le mot de passe qui ouvrent Illuvia sont autre chose, et ils ne sont jamais enregistrés. Ce qui est enregistré est une empreinte Argon2id, avec un sel aléatoire, dans le Gestionnaire d&#x27;identification de Windows, à côté de la clé de chiffrement. Windows Hello, si vous l&#x27;activez, est entièrement géré par Windows : Illuvia ne reçoit qu&#x27;un oui ou un non et ne voit jamais de données biométriques.</p>
+<h2>Supprimer vos données</h2>
+<p>Paramètres → Sécurité → <em>Vider tous les modules</em> efface tout ce que vous avez saisi. À côté, <em>Effacer toutes les données</em> supprime en plus la clé de chiffrement et l&#x27;identifiant : c&#x27;est ce que fait le parcours « j&#x27;ai oublié mon code PIN ».</p>
+<p><strong>Désinstaller Illuvia ne supprime pas vos données.</strong> Windows retire l&#x27;application et laisse les dossiers ci-dessus où ils sont, de sorte qu&#x27;une réinstallation retrouve tout tel que vous l&#x27;aviez laissé. Si vous voulez que les données disparaissent aussi, utilisez d&#x27;abord l&#x27;une des deux commandes, ou supprimez vous-même le dossier <code>%APPDATA%\Gagofed\Illuvia\</code> : il contient la base de données, le journal et les copies automatiques.</p>
+<p>Les sauvegardes que vous avez exportées ne sont touchées par aucune de ces opérations : vous seul savez où elles se trouvent.</p>
+<h2>Mineurs</h2>
+<p>Illuvia est un organiseur personnel à usage général. Elle ne s&#x27;adresse pas aux enfants et ne collecte aucune information de personne, quel que soit son âge.</p>
+<h2>Modifications de cette politique</h2>
+<p>Si une version future d&#x27;Illuvia venait à changer ce qu&#x27;elle fait de vos données, cette page serait mise à jour avant la publication de cette version, et le changement serait décrit dans les notes de version.</p>
+<h2>Contact</h2>
+<p>Questions sur cette politique : <strong>illuvia.dev@gmail.com</strong></p></article>
+  <article data-lang="pt" data-doc="privacy"><h1>Illuvia — Política de privacidade</h1>
+<p><strong>Última atualização: 6 de agosto de 2026 · Aplica-se ao Illuvia 1.0.0 para Windows</strong></p>
+<h2>Em resumo</h2>
+<p>O Illuvia não recolhe nada. Não tem servidores, nem contas, nem ferramentas de análise, e não abre qualquer ligação de rede por iniciativa própria. Tudo o que escreve fica em ficheiros no seu PC, sob a sua conta do Windows.</p>
+<h2>O que o Illuvia guarda, e onde</h2>
+<p>Tudo o que introduz — tarefas, listas, transações, contas, planos de pagamento, desejos, veículos, definições — é escrito em ficheiros dentro da sua pasta de utilizador:</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\database\</code></pre>
+<p>É essa a pasta, quer o Illuvia venha da Microsoft Store quer seja executado a partir de uma compilação normal: os dados não vivem dentro do pacote instalado.</p>
+<p>Esses ficheiros estão <strong>encriptados em disco</strong> com AES-256. A chave é gerada no seu PC no primeiro arranque e guardada no Gestor de Credenciais do Windows, protegida para a sua conta do Windows (DPAPI). Nunca deriva do seu PIN ou palavra-passe, e nunca sai da máquina. Quem copiasse os ficheiros para outro PC, ou tentasse lê-los a partir de outra conta do Windows, não conseguiria desencriptá-los.</p>
+<p>O Illuvia escreve também um registo de diagnóstico em texto simples:</p>
+<pre><code>%APPDATA%\Gagofed\Illuvia\logs\illuvia.log</code></pre>
+<p>Regista o que a aplicação fez — que módulo carregou, quantos registos leu, o que dizia um erro — para que um problema possa ser compreendido mais tarde. Está limitado a 5 MB com até três ficheiros rodados, não é enviado para lado nenhum e pode apagá-lo quando quiser. Não está encriptado: se o enviar para pedir apoio, leia-o primeiro.</p>
+<h2>O que o Illuvia não faz</h2>
+<ul><li><strong>Nenhuma recolha de dados.</strong> Sem estatísticas de utilização, sem relatórios de falhas, sem análise, sem publicidade, sem definição de perfis, sem identificadores de qualquer tipo.</li><li><strong>Nenhuma conta.</strong> Não há nada para registar, e não é preciso um endereço de e-mail para usar a aplicação.</li><li><strong>Nenhuma rede.</strong> O pacote da aplicação não declara qualquer capacidade de ligação à Internet e a aplicação não faz pedidos. Funciona com o cabo de rede desligado.</li><li><strong>Nenhum terceiro.</strong> Nada do que introduz é partilhado com quem quer que seja, porque não há ninguém com quem partilhar.</li></ul>
+<h2>As duas vezes em que algo sai da aplicação</h2>
+<p><strong>Abrir uma ligação.</strong> Se guardar a ligação de uma loja num desejo, ou usar a ligação de donativo, ao tocar nela o endereço passa para o seu navegador predefinido. A partir daí está nesse site, sob a política de privacidade dele, não sob esta. O Illuvia não descarrega a página.</p>
+<p><strong>Fazer uma cópia de segurança.</strong> Uma cópia é um único ficheiro com tudo lá dentro, guardado onde escolher. Como sai do computador é consigo:</p>
+<ul><li><strong>Exportar sem palavra-passe</strong> (predefinição). O ficheiro é escrito como JSON legível. É a única forma de inspecionar uma cópia ou de a abrir com algo que não seja o Illuvia, e é tão privado quanto o sítio onde o puser. Se guardou as credenciais de um serviço num plano de pagamento (ver abaixo), o Illuvia avisa antes de escrever: ali estão em claro.</li><li><strong>Exportar com palavra-passe.</strong> O ficheiro é selado com AES-256, com uma chave derivada da sua palavra-passe (Argon2id). Pode ser restaurado em qualquer máquina, e sem essa palavra-passe não abre: ninguém a pode recuperar por si.</li></ul>
+<p>As cópias que o Illuvia escreve para si próprio — as automáticas, e a cópia de segurança feita antes de um restauro ou de uma importação — estão sempre seladas com a chave deste PC. Ficam na pasta do Illuvia, e desinstalar a aplicação deixa-as lá com tudo o resto.</p>
+<h2>As palavras-passe que guarda para outros serviços</h2>
+<p>Um plano de pagamento pode conter o nome de utilizador e a palavra-passe do serviço que paga — a sua conta da luz, uma subscrição — porque é aí que os procura. São guardados como qualquer outro campo: na base de dados, cifrados em repouso, só neste PC. Nunca são enviados para lado nenhum, e o Illuvia não tem forma de os usar.</p>
+<p>Daqui seguem duas coisas. Viajam dentro de uma cópia de segurança, e é isso que permite que um restauro reponha os seus dados como estavam; e por isso uma <strong>exportação sem palavra-passe</strong> contém-nos em claro, razão pela qual o Illuvia avisa antes de escrever uma.</p>
+<h2>O bloqueio da aplicação</h2>
+<p>O PIN ou a palavra-passe que abrem o Illuvia são outra coisa, e nunca são guardados. O que é guardado é um hash Argon2id, com um sal aleatório, no Gestor de Credenciais do Windows, junto à chave de encriptação. O Windows Hello, se o ativar, é gerido inteiramente pelo Windows: o Illuvia recebe apenas um sim ou um não e nunca vê dados biométricos.</p>
+<h2>Apagar os seus dados</h2>
+<p>Definições → Segurança → <em>Esvaziar todos os módulos</em> elimina tudo o que introduziu. Ao lado, <em>Apagar todos os dados</em> remove também a chave de encriptação e a credencial: é o que faz o percurso «esqueci-me do PIN».</p>
+<p><strong>Desinstalar o Illuvia não apaga os seus dados.</strong> O Windows remove a aplicação e deixa as pastas indicadas acima onde estão, de modo que ao reinstalar encontra tudo como deixou. Se quiser que os dados desapareçam também, use primeiro um dos dois comandos, ou apague a pasta <code>%APPDATA%\Gagofed\Illuvia\</code>: lá dentro estão a base de dados, o registo e as cópias automáticas.</p>
+<p>As cópias de segurança que exportou não são tocadas por nenhuma destas operações: só o utilizador sabe onde estão.</p>
+<h2>Menores</h2>
+<p>O Illuvia é um organizador pessoal de uso geral. Não se dirige a crianças e não recolhe informação de ninguém, de nenhuma idade.</p>
+<h2>Alterações a esta política</h2>
+<p>Se uma versão futura do Illuvia vier a mudar o que faz com os seus dados, esta página será atualizada antes de essa versão ser publicada, e a alteração será descrita nas notas de lançamento.</p>
+<h2>Contacto</h2>
+<p>Questões sobre esta política: <strong>illuvia.dev@gmail.com</strong></p></article>
+  <article data-lang="en" data-doc="terms"><h1>Illuvia — Terms of use</h1>
+<p><strong>Last updated: 6 August 2026 · Applies to Illuvia 1.0.0 for Windows</strong></p>
+<h2>Accepting these terms</h2>
+<p>By installing or using Illuvia you accept these terms. If you do not agree with them, do not install the app, or uninstall it.</p>
+<h2>What you may do with Illuvia</h2>
+<p>Illuvia is free. You may install and use it on as many computers as you own, for personal or professional purposes, for as long as you like. There is nothing to buy, nothing to subscribe to, and no account to create.</p>
+<p>You are granted a personal, non-exclusive, non-transferable right to use the application as it is distributed through the Microsoft Store. You may not sell it, rent it, redistribute it as your own, or attempt to derive its source code. Nothing prevents you from exporting, copying and keeping your own data: it is yours, and it never stops being yours.</p>
+<h2>The app is provided as it is</h2>
+<p>Illuvia is provided &quot;as is&quot;, without warranty of any kind, express or implied. It is offered in good faith and tested with care, but it is not guaranteed to be free of defects, to be available on every configuration of Windows, or to be fit for any particular purpose you may have in mind.</p>
+<p>To the fullest extent permitted by law, the publisher is not liable for any loss or damage — including lost data, lost time, or financial decisions taken on the basis of what the app displayed — arising from the use of, or the inability to use, Illuvia.</p>
+<h2>Illuvia is not financial advice</h2>
+<p>Illuvia records and adds up the numbers <strong>you</strong> enter. Balances, totals, projections and the value of any asset you track are the arithmetic result of your own input, and nothing more. They are not advice, not a valuation, and not a professional opinion.</p>
+<p>Asset prices in particular are the ones you type in yourself: the app does not connect to any market, quote or data provider, and it cannot know whether the figure you entered is still current. Do not make an investment, tax or borrowing decision on the basis of what Illuvia shows you without checking it against the real source.</p>
+<h2>Your data is your responsibility</h2>
+<p>Illuvia stores everything locally on your PC and sends nothing anywhere. That means nobody else holds a copy on your behalf:</p>
+<ul><li><strong>Backups are yours to make and to keep.</strong> The app writes automatic copies and lets you export a backup wherever you like, but where those files end up, and whether they survive a disk failure, is up to you.</li><li><strong>A forgotten PIN or password cannot be recovered.</strong> Neither by you nor by the publisher: the app is built so that no one holds a master key. The recovery path is restoring a backup, which is why one is worth keeping.</li><li><strong>An export without a password is a readable file.</strong> If you choose that option, treat the resulting file with the same care as the data inside it.</li></ul>
+<h2>What this app does not promise</h2>
+<p>There is no server behind Illuvia, so there is no service to interrupt. By the same token there is no guarantee of updates, of new features, of support within any particular time, or that the app will remain available on the Microsoft Store indefinitely. Should it be withdrawn, a copy already installed keeps working, and your data stays where it is on your PC.</p>
+<h2>Changes to these terms</h2>
+<p>These terms may be updated when the app changes. The current version is always the one published at the address these documents live at, with the date at the top. Continuing to use Illuvia after a change means accepting the updated terms.</p>
+<h2>Governing law</h2>
+<p>These terms are governed by Italian law, without prejudice to any mandatory consumer protection you are entitled to under the law of your own country of residence.</p>
+<h2>Contact</h2>
+<p>Questions about these terms: <strong>illuvia.dev@gmail.com</strong></p></article>
+  <article data-lang="it" data-doc="terms"><h1>Illuvia — Termini d&#x27;uso</h1>
+<p><strong>Ultimo aggiornamento: 6 agosto 2026 · Vale per Illuvia 1.0.0 per Windows</strong></p>
+<h2>Accettazione dei termini</h2>
+<p>Installando o usando Illuvia accetti questi termini. Se non sei d&#x27;accordo, non installare l&#x27;app, oppure disinstallala.</p>
+<h2>Cosa puoi fare con Illuvia</h2>
+<p>Illuvia è gratuita. Puoi installarla e usarla su tutti i computer che possiedi, per scopi personali o professionali, per tutto il tempo che vuoi. Non c&#x27;è niente da comprare, nessun abbonamento e nessun account da creare.</p>
+<p>Ti viene concesso un diritto d&#x27;uso personale, non esclusivo e non trasferibile dell&#x27;applicazione così come viene distribuita dal Microsoft Store. Non puoi venderla, noleggiarla, ridistribuirla come tua o tentare di risalire al suo codice sorgente. Nulla ti impedisce invece di esportare, copiare e conservare i tuoi dati: sono tuoi, e non smettono mai di esserlo.</p>
+<h2>L&#x27;app è fornita così com&#x27;è</h2>
+<p>Illuvia è fornita &quot;così com&#x27;è&quot;, senza garanzie di alcun tipo, esplicite o implicite. È offerta in buona fede e testata con cura, ma non è garantito che sia priva di difetti, che funzioni su ogni configurazione di Windows o che sia adatta a uno scopo particolare che hai in mente.</p>
+<p>Nei limiti massimi consentiti dalla legge, l&#x27;editore non risponde di perdite o danni — inclusi perdita di dati, perdita di tempo o decisioni economiche prese sulla base di quanto mostrato dall&#x27;app — derivanti dall&#x27;uso o dall&#x27;impossibilità di usare Illuvia.</p>
+<h2>Illuvia non è consulenza finanziaria</h2>
+<p>Illuvia registra e somma i numeri che inserisci <strong>tu</strong>. Saldi, totali, proiezioni e il valore di qualsiasi asset che tieni sotto controllo sono il risultato aritmetico di ciò che hai scritto, e nulla di più. Non sono un consiglio, non sono una valutazione e non sono un parere professionale.</p>
+<p>I prezzi degli asset, in particolare, sono quelli che digiti tu: l&#x27;app non si collega ad alcun mercato, quotazione o fornitore di dati, e non può sapere se la cifra che hai inserito è ancora attuale. Non prendere decisioni di investimento, fiscali o di indebitamento sulla base di quello che Illuvia mostra senza verificarlo alla fonte reale.</p>
+<h2>I tuoi dati sono una tua responsabilità</h2>
+<p>Illuvia salva tutto in locale sul tuo PC e non manda niente da nessuna parte. Questo significa che nessun altro ne conserva una copia al posto tuo:</p>
+<ul><li><strong>I backup li fai e li custodisci tu.</strong> L&#x27;app scrive copie automatiche e ti permette di esportare un backup dove preferisci, ma dove finiscono quei file, e se sopravvivono alla rottura di un disco, dipende da te.</li><li><strong>Un PIN o una password dimenticati non si recuperano.</strong> Né da te né dall&#x27;editore: l&#x27;app è costruita perché nessuno detenga una chiave universale. La via d&#x27;uscita è ripristinare un backup, ed è il motivo per cui vale la pena averne uno.</li><li><strong>Un&#x27;esportazione senza password è un file leggibile.</strong> Se scegli quell&#x27;opzione, tratta il file che ne esce con la stessa cura dei dati che contiene.</li></ul>
+<h2>Cosa questa app non promette</h2>
+<p>Dietro Illuvia non c&#x27;è nessun server, quindi non c&#x27;è nessun servizio che possa interrompersi. Allo stesso modo non c&#x27;è alcuna garanzia di aggiornamenti, di nuove funzionalità, di assistenza entro un tempo determinato, né che l&#x27;app resti disponibile sul Microsoft Store per sempre. Se venisse ritirata, una copia già installata continua a funzionare e i tuoi dati restano dove sono sul tuo PC.</p>
+<h2>Modifiche a questi termini</h2>
+<p>Questi termini possono essere aggiornati quando l&#x27;app cambia. La versione valida è sempre quella pubblicata all&#x27;indirizzo dove vivono questi documenti, con la data in alto. Continuare a usare Illuvia dopo una modifica significa accettare i termini aggiornati.</p>
+<h2>Legge applicabile</h2>
+<p>Questi termini sono regolati dalla legge italiana, fatte salve le tutele inderogabili del consumatore previste dalla legge del tuo paese di residenza.</p>
+<h2>Contatti</h2>
+<p>Domande su questi termini: <strong>illuvia.dev@gmail.com</strong></p></article>
+  <article data-lang="es" data-doc="terms"><h1>Illuvia — Términos de uso</h1>
+<p><strong>Última actualización: 6 de agosto de 2026 · Aplica a Illuvia 1.0.0 para Windows</strong></p>
+<h2>Aceptación de los términos</h2>
+<p>Al instalar o usar Illuvia aceptas estos términos. Si no estás de acuerdo con ellos, no instales la aplicación, o desinstálala.</p>
+<h2>Qué puedes hacer con Illuvia</h2>
+<p>Illuvia es gratuita. Puedes instalarla y usarla en todos los ordenadores que poseas, con fines personales o profesionales, durante todo el tiempo que quieras. No hay nada que comprar, ninguna suscripción y ninguna cuenta que crear.</p>
+<p>Se te concede un derecho de uso personal, no exclusivo e intransferible de la aplicación tal como se distribuye a través de la Microsoft Store. No puedes venderla, alquilarla, redistribuirla como propia ni intentar obtener su código fuente. Nada te impide, en cambio, exportar, copiar y conservar tus datos: son tuyos, y nunca dejan de serlo.</p>
+<h2>La aplicación se ofrece tal cual</h2>
+<p>Illuvia se ofrece «tal cual», sin garantía de ningún tipo, expresa o implícita. Se publica de buena fe y se prueba con cuidado, pero no se garantiza que esté libre de defectos, que funcione en cualquier configuración de Windows ni que sea adecuada para un fin concreto que tengas en mente.</p>
+<p>En la máxima medida permitida por la ley, el editor no responde de pérdidas ni daños — incluidas la pérdida de datos, la pérdida de tiempo o las decisiones económicas tomadas a partir de lo que mostró la aplicación — derivados del uso o de la imposibilidad de usar Illuvia.</p>
+<h2>Illuvia no es asesoramiento financiero</h2>
+<p>Illuvia registra y suma los números que introduces <strong>tú</strong>. Saldos, totales, proyecciones y el valor de cualquier activo que sigas son el resultado aritmético de lo que has escrito, y nada más. No son un consejo, no son una valoración y no son una opinión profesional.</p>
+<p>Los precios de los activos, en particular, son los que escribes tú: la aplicación no se conecta a ningún mercado, cotización ni proveedor de datos, y no puede saber si la cifra que introdujiste sigue vigente. No tomes decisiones de inversión, fiscales o de endeudamiento a partir de lo que Illuvia muestra sin contrastarlo con la fuente real.</p>
+<h2>Tus datos son responsabilidad tuya</h2>
+<p>Illuvia guarda todo localmente en tu PC y no envía nada a ninguna parte. Eso significa que nadie más conserva una copia por ti:</p>
+<ul><li><strong>Las copias de seguridad las haces y las guardas tú.</strong> La aplicación escribe copias automáticas y te permite exportar una copia donde prefieras, pero dónde acaban esos archivos, y si sobreviven a la rotura de un disco, depende de ti.</li><li><strong>Un PIN o una contraseña olvidados no se recuperan.</strong> Ni por ti ni por el editor: la aplicación está construida para que nadie tenga una clave maestra. La salida es restaurar una copia de seguridad, y por eso vale la pena tener una.</li><li><strong>Una exportación sin contraseña es un archivo legible.</strong> Si eliges esa opción, trata el archivo resultante con el mismo cuidado que los datos que contiene.</li></ul>
+<h2>Qué no promete esta aplicación</h2>
+<p>Detrás de Illuvia no hay ningún servidor, así que no hay ningún servicio que pueda interrumpirse. Del mismo modo, no hay garantía de actualizaciones, de nuevas funciones, de asistencia en un plazo determinado, ni de que la aplicación siga disponible en la Microsoft Store indefinidamente. Si se retirara, una copia ya instalada sigue funcionando y tus datos permanecen donde están en tu PC.</p>
+<h2>Cambios en estos términos</h2>
+<p>Estos términos pueden actualizarse cuando la aplicación cambie. La versión vigente es siempre la publicada en la dirección donde viven estos documentos, con la fecha arriba. Seguir usando Illuvia tras un cambio significa aceptar los términos actualizados.</p>
+<h2>Ley aplicable</h2>
+<p>Estos términos se rigen por la ley italiana, sin perjuicio de las protecciones imperativas del consumidor que te correspondan según la ley de tu país de residencia.</p>
+<h2>Contacto</h2>
+<p>Preguntas sobre estos términos: <strong>illuvia.dev@gmail.com</strong></p></article>
+  <article data-lang="fr" data-doc="terms"><h1>Illuvia — Conditions d&#x27;utilisation</h1>
+<p><strong>Dernière mise à jour : 6 août 2026 · S&#x27;applique à Illuvia 1.0.0 pour Windows</strong></p>
+<h2>Acceptation des conditions</h2>
+<p>En installant ou en utilisant Illuvia, vous acceptez ces conditions. Si vous n&#x27;êtes pas d&#x27;accord, n&#x27;installez pas l&#x27;application, ou désinstallez-la.</p>
+<h2>Ce que vous pouvez faire avec Illuvia</h2>
+<p>Illuvia est gratuite. Vous pouvez l&#x27;installer et l&#x27;utiliser sur autant d&#x27;ordinateurs que vous possédez, à des fins personnelles ou professionnelles, aussi longtemps que vous le souhaitez. Il n&#x27;y a rien à acheter, aucun abonnement et aucun compte à créer.</p>
+<p>Il vous est accordé un droit d&#x27;usage personnel, non exclusif et non transférable de l&#x27;application telle qu&#x27;elle est distribuée par le Microsoft Store. Vous ne pouvez pas la vendre, la louer, la redistribuer comme étant la vôtre, ni tenter d&#x27;en obtenir le code source. Rien ne vous empêche en revanche d&#x27;exporter, de copier et de conserver vos données : elles sont à vous, et elles le restent.</p>
+<h2>L&#x27;application est fournie telle quelle</h2>
+<p>Illuvia est fournie « telle quelle », sans garantie d&#x27;aucune sorte, expresse ou implicite. Elle est proposée de bonne foi et testée avec soin, mais il n&#x27;est pas garanti qu&#x27;elle soit exempte de défauts, qu&#x27;elle fonctionne sur toutes les configurations de Windows, ni qu&#x27;elle convienne à un usage particulier que vous auriez en tête.</p>
+<p>Dans toute la mesure permise par la loi, l&#x27;éditeur n&#x27;est pas responsable des pertes ou dommages — y compris la perte de données, la perte de temps ou les décisions financières prises à partir de ce qu&#x27;affichait l&#x27;application — résultant de l&#x27;utilisation d&#x27;Illuvia ou de l&#x27;impossibilité de l&#x27;utiliser.</p>
+<h2>Illuvia n&#x27;est pas un conseil financier</h2>
+<p>Illuvia enregistre et additionne les nombres que <strong>vous</strong> saisissez. Les soldes, les totaux, les projections et la valeur de tout actif que vous suivez sont le résultat arithmétique de ce que vous avez écrit, et rien de plus. Ce ne sont ni un conseil, ni une valorisation, ni un avis professionnel.</p>
+<p>Les prix des actifs, en particulier, sont ceux que vous saisissez vous-même : l&#x27;application ne se connecte à aucun marché, aucune cotation ni aucun fournisseur de données, et elle ne peut pas savoir si le chiffre que vous avez entré est toujours d&#x27;actualité. Ne prenez pas de décision d&#x27;investissement, fiscale ou d&#x27;emprunt à partir de ce qu&#x27;Illuvia affiche sans le vérifier à la source réelle.</p>
+<h2>Vos données sont votre responsabilité</h2>
+<p>Illuvia enregistre tout localement sur votre PC et n&#x27;envoie rien nulle part. Cela veut dire que personne d&#x27;autre n&#x27;en conserve une copie pour vous :</p>
+<ul><li><strong>Les sauvegardes, c&#x27;est vous qui les faites et les gardez.</strong> L&#x27;application écrit des copies automatiques et vous permet d&#x27;exporter une sauvegarde où vous voulez, mais où ces fichiers finissent, et s&#x27;ils survivent à la panne d&#x27;un disque, cela dépend de vous.</li><li><strong>Un code PIN ou un mot de passe oubliés ne se récupèrent pas.</strong> Ni par vous ni par l&#x27;éditeur : l&#x27;application est construite pour que personne ne détienne de clé maîtresse. La sortie de secours est la restauration d&#x27;une sauvegarde, et c&#x27;est pour cela qu&#x27;il vaut la peine d&#x27;en avoir une.</li><li><strong>Un export sans mot de passe est un fichier lisible.</strong> Si vous choisissez cette option, traitez le fichier obtenu avec le même soin que les données qu&#x27;il contient.</li></ul>
+<h2>Ce que cette application ne promet pas</h2>
+<p>Il n&#x27;y a aucun serveur derrière Illuvia, donc aucun service susceptible d&#x27;être interrompu. De la même façon, il n&#x27;y a aucune garantie de mises à jour, de nouvelles fonctionnalités, d&#x27;assistance dans un délai donné, ni que l&#x27;application reste disponible indéfiniment sur le Microsoft Store. Si elle était retirée, une copie déjà installée continue de fonctionner et vos données restent là où elles sont sur votre PC.</p>
+<h2>Modifications de ces conditions</h2>
+<p>Ces conditions peuvent être mises à jour lorsque l&#x27;application évolue. La version en vigueur est toujours celle publiée à l&#x27;adresse où vivent ces documents, avec la date en haut. Continuer à utiliser Illuvia après une modification vaut acceptation des conditions mises à jour.</p>
+<h2>Droit applicable</h2>
+<p>Ces conditions sont régies par le droit italien, sans préjudice des protections impératives du consommateur dont vous bénéficiez en vertu du droit de votre pays de résidence.</p>
+<h2>Contact</h2>
+<p>Questions sur ces conditions : <strong>illuvia.dev@gmail.com</strong></p></article>
+  <article data-lang="pt" data-doc="terms"><h1>Illuvia — Termos de utilização</h1>
+<p><strong>Última atualização: 6 de agosto de 2026 · Aplica-se ao Illuvia 1.0.0 para Windows</strong></p>
+<h2>Aceitação destes termos</h2>
+<p>Ao instalar ou utilizar o Illuvia, aceita estes termos. Se não concordar com eles, não instale a aplicação, ou desinstale-a.</p>
+<h2>O que pode fazer com o Illuvia</h2>
+<p>O Illuvia é gratuito. Pode instalá-lo e utilizá-lo em todos os computadores que possuir, para fins pessoais ou profissionais, durante o tempo que quiser. Não há nada para comprar, nenhuma subscrição e nenhuma conta para criar.</p>
+<p>É-lhe concedido um direito de utilização pessoal, não exclusivo e intransmissível da aplicação tal como é distribuída pela Microsoft Store. Não pode vendê-la, alugá-la, redistribuí-la como sua, nem tentar obter o seu código fonte. Nada o impede, em contrapartida, de exportar, copiar e guardar os seus dados: são seus, e nunca deixam de o ser.</p>
+<h2>A aplicação é fornecida tal como está</h2>
+<p>O Illuvia é fornecido «tal como está», sem garantia de qualquer tipo, expressa ou implícita. É disponibilizado de boa-fé e testado com cuidado, mas não se garante que esteja isento de defeitos, que funcione em todas as configurações do Windows, nem que seja adequado a um fim específico que tenha em mente.</p>
+<p>Na medida máxima permitida por lei, o editor não é responsável por perdas ou danos — incluindo perda de dados, perda de tempo ou decisões económicas tomadas com base no que a aplicação mostrou — decorrentes da utilização ou da impossibilidade de utilizar o Illuvia.</p>
+<h2>O Illuvia não é aconselhamento financeiro</h2>
+<p>O Illuvia regista e soma os números que <strong>você</strong> introduz. Saldos, totais, projeções e o valor de qualquer ativo que acompanhe são o resultado aritmético daquilo que escreveu, e nada mais. Não são um conselho, não são uma avaliação e não são um parecer profissional.</p>
+<p>Os preços dos ativos, em particular, são os que escreve você próprio: a aplicação não se liga a qualquer mercado, cotação ou fornecedor de dados, e não pode saber se o valor que introduziu ainda é atual. Não tome decisões de investimento, fiscais ou de crédito com base no que o Illuvia mostra sem as confirmar junto da fonte real.</p>
+<h2>Os seus dados são da sua responsabilidade</h2>
+<p>O Illuvia guarda tudo localmente no seu PC e não envia nada para lado nenhum. Isso significa que mais ninguém guarda uma cópia por si:</p>
+<ul><li><strong>As cópias de segurança é você que as faz e as guarda.</strong> A aplicação escreve cópias automáticas e permite-lhe exportar uma cópia para onde preferir, mas onde esses ficheiros vão parar, e se sobrevivem à avaria de um disco, depende de si.</li><li><strong>Um PIN ou uma palavra-passe esquecidos não se recuperam.</strong> Nem por si nem pelo editor: a aplicação foi construída para que ninguém detenha uma chave mestra. A saída é restaurar uma cópia de segurança, e é por isso que vale a pena ter uma.</li><li><strong>Uma exportação sem palavra-passe é um ficheiro legível.</strong> Se escolher essa opção, trate o ficheiro resultante com o mesmo cuidado que os dados que ele contém.</li></ul>
+<h2>O que esta aplicação não promete</h2>
+<p>Não existe qualquer servidor por trás do Illuvia, por isso não há serviço que possa ser interrompido. Do mesmo modo, não há garantia de atualizações, de novas funcionalidades, de apoio dentro de um prazo determinado, nem de que a aplicação continue disponível na Microsoft Store indefinidamente. Se for retirada, uma cópia já instalada continua a funcionar e os seus dados permanecem onde estão no seu PC.</p>
+<h2>Alterações a estes termos</h2>
+<p>Estes termos podem ser atualizados quando a aplicação mudar. A versão em vigor é sempre a publicada no endereço onde vivem estes documentos, com a data no topo. Continuar a utilizar o Illuvia após uma alteração significa aceitar os termos atualizados.</p>
+<h2>Lei aplicável</h2>
+<p>Estes termos são regidos pela lei italiana, sem prejuízo das proteções imperativas do consumidor que lhe assistam ao abrigo da lei do seu país de residência.</p>
+<h2>Contacto</h2>
+<p>Questões sobre estes termos: <strong>illuvia.dev@gmail.com</strong></p></article>
+
+  <footer>
+    <p><strong>Ga.Go.Fed - GammaGold Federation</strong> · illuvia.dev@gmail.com</p>
+    <p>Last updated 6 August 2026.</p>
+  </footer>
+</div>
+<script>
+(function () {
+  var state = { lang: "en", doc: "privacy" };
+  var labels = {"en": {"privacy": "Privacy policy", "terms": "Terms of use"}, "it": {"privacy": "Informativa privacy", "terms": "Termini d'uso"}, "es": {"privacy": "Política de privacidad", "terms": "Términos de uso"}, "fr": {"privacy": "Confidentialité", "terms": "Conditions"}, "pt": {"privacy": "Privacidade", "terms": "Termos"}};
+
+  function apply() {
+    document.querySelectorAll("article").forEach(function (el) {
+      el.classList.toggle("active", el.dataset.lang === state.lang && el.dataset.doc === state.doc);
+    });
+    document.querySelectorAll("nav.langs button").forEach(function (b) {
+      b.setAttribute("aria-current", String(b.dataset.lang === state.lang));
+    });
+    document.querySelectorAll("nav.docs button").forEach(function (b) {
+      b.setAttribute("aria-current", String(b.dataset.doc === state.doc));
+      b.textContent = labels[state.lang][b.dataset.doc];
+    });
+    document.documentElement.lang = state.lang;
+  }
+
+  document.querySelectorAll("nav.langs button").forEach(function (b) {
+    b.addEventListener("click", function () { state.lang = b.dataset.lang; apply(); });
+  });
+  document.querySelectorAll("nav.docs button").forEach(function (b) {
+    b.addEventListener("click", function () { state.doc = b.dataset.doc; apply(); });
+  });
+
+  var preferred = (navigator.language || "en").slice(0, 2);
+  if (labels[preferred]) { state.lang = preferred; }
+  apply();
+})();
+</script>
+</body>
+</html>
