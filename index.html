@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Illuvia — Policies</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20512%20512'%3E%3Cdefs%3E%3ClinearGradient%20id='p'%20x1='0'%20y1='0'%20x2='0'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%237E55E8'/%3E%3Cstop%20offset='1'%20stop-color='%238A5FFC'/%3E%3C/linearGradient%3E%3ClinearGradient%20id='c'%20x1='0'%20y1='0'%20x2='0'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%2326BBA4'/%3E%3Cstop%20offset='1'%20stop-color='%2333C2E0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20x='123'%20y='54'%20width='66'%20height='404'%20rx='19'%20fill='url(%23p)'/%3E%3Crect%20x='223'%20y='54'%20width='66'%20height='404'%20rx='19'%20fill='url(%23c)'/%3E%3Crect%20x='323'%20y='54'%20width='66'%20height='404'%20rx='19'%20fill='url(%23c)'/%3E%3C/svg%3E">
 <meta name="description" content="Privacy policy and terms of use for Illuvia, a personal life-management app for Windows.">
 <style>
 :root {
@@ -23,8 +24,19 @@ body {
 }
 .wrap { max-width: 46rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
 header { border-bottom: 1px solid var(--line); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+/* --- Marchio Illuvia: le tre barre sono un disegno, non tre lettere --- */
 .brand { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
-.brand span { color: var(--accent); }
+.brand-mark {
+  height: 0.78em;        /* altezza delle tre barre (regolabile) */
+  width: auto;
+  margin-right: 0.09em;  /* spazio fra la terza barra e la "u" */
+  vertical-align: baseline;
+}
+.sr-only {               /* testo per i lettori di schermo, invisibile a video */
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  -webkit-user-select: none; user-select: none;
+}
 .tagline { color: var(--muted); margin: 0.35rem 0 0; font-size: 0.95rem; }
 nav { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
 nav.docs { margin-bottom: 2rem; }
@@ -62,7 +74,22 @@ footer {
 <body>
 <div class="wrap">
   <header>
-    <p class="brand">Illu<span>via</span></p>
+    <p class="brand">
+      <span class="sr-only">Illuvia</span>
+      <span aria-hidden="true"><svg class="brand-mark" viewBox="0 0 266 404" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <defs>
+          <linearGradient id="ilvPurple" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#7E55E8"/><stop offset="1" stop-color="#8A5FFC"/>
+          </linearGradient>
+          <linearGradient id="ilvCyan" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#26BBA4"/><stop offset="1" stop-color="#33C2E0"/>
+          </linearGradient>
+        </defs>
+        <rect x="0"   y="0" width="66" height="404" rx="19" fill="url(#ilvPurple)"/>
+        <rect x="100" y="0" width="66" height="404" rx="19" fill="url(#ilvCyan)"/>
+        <rect x="200" y="0" width="66" height="404" rx="19" fill="url(#ilvCyan)"/>
+      </svg>uvia</span>
+    </p>
     <p class="tagline">Personal life management for Windows — offline by design.</p>
   </header>
 
